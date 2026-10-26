@@ -1,0 +1,63 @@
+{
+  "phase": "Phase 6 - Model Explainability",
+  "date": "2026-10-07 22:53:58",
+  "random_seed": 42,
+  "dataset_split": "test",
+  "test_csv": "data/processed/splits/test.csv",
+  "model_checkpoints": {
+    "image_only": "models/image_only/best_model.pt",
+    "metadata_only": "models/metadata_only/best_model.pt",
+    "multimodal": "models/multimodal/attention_model.pt"
+  },
+  "gradcam": {
+    "target_layer": "feature_extractor[-1] (ResNet50 layer4)",
+    "n_classes_explained": 8,
+    "class_names": [
+      "NV",
+      "MEL",
+      "BCC",
+      "BKL",
+      "AK",
+      "SCC",
+      "VASC",
+      "DF"
+    ]
+  },
+  "shap": {
+    "method": "KernelExplainer",
+    "nsamples": 50,
+    "n_background": 100,
+    "background_source": "train split (random sample)",
+    "n_explained": 200,
+    "feature_names": [
+      "age_approx",
+      "sex_Unknown",
+      "sex_female",
+      "sex_male",
+      "anatom_site_general_Unknown",
+      "anatom_site_general_anterior torso",
+      "anatom_site_general_head/neck",
+      "anatom_site_general_lateral torso",
+      "anatom_site_general_lower extremity",
+      "anatom_site_general_oral/genital",
+      "anatom_site_general_palms/soles",
+      "anatom_site_general_posterior torso",
+      "anatom_site_general_upper extremity"
+    ],
+    "error": null
+  },
+  "attention": {
+    "num_heads": 4,
+    "num_tokens": 2,
+    "token_dim": 256,
+    "n_samples_analyzed": 500,
+    "aggregation": "Averaged across 4 heads (PyTorch MHA default with average_attn_weights=True)"
+  },
+  "software": {
+    "python": "3.10.10",
+    "torch": "2.14.1+cpu",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "joblib": "1.5.0"
+  }
+}

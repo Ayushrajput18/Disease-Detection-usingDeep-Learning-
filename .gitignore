@@ -1,0 +1,26 @@
+﻿# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.class
+*.so
+
+# Raw Medical Image Dataset (>9 GB - Download via ISIC 2019 Archive)
+Dataset/
+Dataset/**
+
+# Redundant epoch checkpoints
+models/image_only/last_model.pt
+models/metadata_only/last_model.pt
+
+# Environments & IDEs
+.vscode/
+.idea/
+venv/
+env/
+.env
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

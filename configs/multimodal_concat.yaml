@@ -1,0 +1,36 @@
+# Configuration for Phase 5: Multimodal Simple Concatenation Fusion
+
+dataset:
+  train_embeddings: "data/processed/embeddings/train_embeddings.npz"
+  val_embeddings: "data/processed/embeddings/val_embeddings.npz"
+  test_embeddings: "data/processed/embeddings/test_embeddings.npz"
+  num_classes: 8
+  class_names: ["NV", "MEL", "BCC", "BKL", "AK", "SCC", "VASC", "DF"]
+
+model:
+  name: "multimodal_concat"
+  image_dim: 2048
+  metadata_dim: 32
+  fused_dim: 2080
+  dense_1: 512
+  dense_2: 128
+  dropout_1: 0.3
+  dropout_2: 0.2
+
+training:
+  seed: 42
+  batch_size: 128
+  epochs: 25
+  lr: 1e-4
+  weight_decay: 1e-4
+  optimizer: "AdamW"
+  scheduler: "ReduceLROnPlateau"
+  scheduler_patience: 3
+  scheduler_factor: 0.5
+  early_stopping_patience: 6
+  early_stopping_metric: "val_macro_f1"
+
+output:
+  checkpoint_dir: "models/multimodal"
+  reports_dir: "reports/results"
+  figures_dir: "reports/figures/multimodal"

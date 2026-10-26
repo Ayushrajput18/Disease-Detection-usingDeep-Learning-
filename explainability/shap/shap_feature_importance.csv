@@ -1,0 +1,14 @@
+feature,mean_abs_shap
+age_approx,0.045366250044140966
+anatom_site_general_head/neck,0.021334511871868137
+anatom_site_general_lower extremity,0.018923389922729246
+anatom_site_general_anterior torso,0.010624586843183634
+anatom_site_general_Unknown,0.008788616238796832
+sex_female,0.007118043866008599
+anatom_site_general_posterior torso,0.006133757654651109
+sex_male,0.005664567687753448
+anatom_site_general_upper extremity,0.004903058035607423
+sex_Unknown,0.0014342629863600348
+anatom_site_general_lateral torso,0.0005273937892038865
+anatom_site_general_palms/soles,9.70579374381979e-05
+anatom_site_general_oral/genital,0.0

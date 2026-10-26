@@ -1,0 +1,24 @@
+{
+    "accuracy": 0.5656,
+    "macro_precision": 0.3664,
+    "macro_recall_sensitivity": 0.4713,
+    "macro_specificity": 0.9339,
+    "macro_f1": 0.3769,
+    "weighted_f1": 0.599,
+    "macro_roc_auc": 0.8518,
+    "class_roc_auc": {
+        "NV": 0.8823,
+        "MEL": 0.7765,
+        "BCC": 0.9046,
+        "BKL": 0.8009,
+        "AK": 0.8958,
+        "SCC": 0.8846,
+        "VASC": 0.9543,
+        "DF": 0.7156
+    },
+    "inference_performance": {
+        "total_inference_time_seconds": 186.23,
+        "average_time_per_image_ms": 47.26,
+        "images_per_second": 21.16
+    }
+}

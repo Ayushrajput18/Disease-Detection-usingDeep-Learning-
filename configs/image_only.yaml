@@ -1,0 +1,38 @@
+# Configuration for Phase 3: Image-Only ResNet50 Baseline
+
+dataset:
+  train_path: "data/processed/splits/train.csv"
+  val_path: "data/processed/splits/validation.csv"
+  test_path: "data/processed/splits/test.csv"
+  image_dir: "Dataset/ISIC_2019_Training_Input"
+  num_classes: 8
+  class_names: ["NV", "MEL", "BCC", "BKL", "AK", "SCC", "VASC", "DF"]
+
+model:
+  name: "resnet50"
+  pretrained: true
+  embedding_dim: 2048
+  dropout_rate: 0.3
+
+training:
+  seed: 42
+  image_size: 224
+  batch_size: 64
+  num_workers: 0
+  epochs: 5
+  stage1_epochs: 2  # Train classification head only
+  stage2_epochs: 3 # Fine-tune unfreezed backbone
+  stage1_lr: 1e-3
+  stage2_lr: 1e-4
+  weight_decay: 1e-4
+  optimizer: "AdamW"
+  scheduler: "ReduceLROnPlateau"
+  scheduler_patience: 2
+  scheduler_factor: 0.5
+  early_stopping_patience: 5
+  early_stopping_metric: "val_macro_f1"
+
+output:
+  checkpoint_dir: "models/image_only"
+  reports_dir: "reports/results"
+  figures_dir: "reports/figures/image_only"

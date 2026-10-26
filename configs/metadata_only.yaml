@@ -1,0 +1,39 @@
+# Configuration for Phase 4: Clinical/Metadata-Only MLP Baseline
+
+dataset:
+  train_path: "data/processed/splits/train.csv"
+  val_path: "data/processed/splits/validation.csv"
+  test_path: "data/processed/splits/test.csv"
+  num_classes: 8
+  class_names: ["NV", "MEL", "BCC", "BKL", "AK", "SCC", "VASC", "DF"]
+  class_mapping_path: "reports/dataset/class_mapping.json"
+  numerical_features: ["age_approx"]
+  categorical_features: ["sex", "anatom_site_general"]
+  non_predictive_identifiers: ["image_id", "lesion_id", "lesion_group_id", "combined_leakage_group_id", "image_path"]
+
+model:
+  name: "metadata_mlp"
+  hidden_dim_1: 128
+  hidden_dim_2: 64
+  embedding_dim: 32
+  dropout_1: 0.3
+  dropout_2: 0.2
+
+training:
+  seed: 42
+  batch_size: 256
+  epochs: 30
+  lr: 1e-3
+  weight_decay: 1e-4
+  optimizer: "AdamW"
+  scheduler: "ReduceLROnPlateau"
+  scheduler_patience: 3
+  scheduler_factor: 0.5
+  early_stopping_patience: 7
+  early_stopping_metric: "val_macro_f1"
+
+output:
+  checkpoint_dir: "models/metadata_only"
+  reports_dir: "reports/results"
+  figures_dir: "reports/figures/metadata_only"
+  exploration_dir: "reports/figures/metadata_only/exploration"

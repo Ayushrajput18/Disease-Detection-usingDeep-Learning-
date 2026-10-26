@@ -1,0 +1,52 @@
+{
+    "source_dataset": "ISIC 2019",
+    "total_original_images": 25331,
+    "duplicate_image_pairs_count": 50,
+    "total_images_in_duplicate_pairs": 100,
+    "canonical_primary_experiment_images": 25281,
+    "removed_duplicates_for_primary_experiment": 50,
+    "class_mapping": {
+        "NV": 0,
+        "MEL": 1,
+        "BCC": 2,
+        "BKL": 3,
+        "AK": 4,
+        "SCC": 5,
+        "VASC": 6,
+        "DF": 7
+    },
+    "grouping_variable": "combined_leakage_group_id (combines lesion_id and duplicate_group_id)",
+    "split_ratios": {
+        "train": 0.7011,
+        "validation": 0.1495,
+        "test": 0.1494
+    },
+    "random_seed": 42,
+    "image_resolution": "224x224 (for ResNet50 input)",
+    "clinical_features": [
+        "age_approx",
+        "sex",
+        "anatom_site_general"
+    ],
+    "clinical_identifiers_non_predictive": [
+        "image_id",
+        "lesion_id",
+        "lesion_group_id",
+        "combined_leakage_group_id"
+    ],
+    "missing_data_strategy": {
+        "age_approx": "Median imputation fitted on Training set only",
+        "sex": "Explicit 'Unknown' category",
+        "anatom_site_general": "Explicit 'Unknown' category"
+    },
+    "training_class_weights": {
+        "NV": 0.2437,
+        "MEL": 0.7139,
+        "BCC": 0.9557,
+        "BKL": 1.2086,
+        "AK": 3.6499,
+        "SCC": 5.0862,
+        "VASC": 12.7009,
+        "DF": 13.8192
+    }
+}

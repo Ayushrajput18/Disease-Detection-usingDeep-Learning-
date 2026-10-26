@@ -1,0 +1,10 @@
+{
+    "accuracy": 0.6925,
+    "macro_precision": 0.1396,
+    "macro_recall": 0.1785,
+    "macro_specificity": 0.921,
+    "macro_f1": 0.1538,
+    "weighted_f1": 0.6519,
+    "macro_roc_auc": 0.7309,
+    "total_inference_time_seconds": 0.1263
+}
